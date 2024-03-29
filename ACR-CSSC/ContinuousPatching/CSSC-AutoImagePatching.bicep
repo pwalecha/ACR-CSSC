@@ -1,11 +1,11 @@
 param AcrName string
 param AcrLocation string = resourceGroup().location
 
-var taskContextPath='https://github.com/pwalecha/ACR-CSSC.git#users/puwalech/cssc'
-var imagePatching='CSSCPatchImage.yaml'
-var imageScanning='CSSCScanImageAndScedulePatch.yaml'
-var repoPatching='CSSCScanRepoAndScedulePatch.yaml'
-var registryPatching='CSSCScanRegistryAndScedulePatch.yaml'
+var taskContextPath='https://github.com/pwalecha/ACR-CSSC.git#csscworkflow'
+var imagePatching='ACR-CSSC\\ContinuousPatching\\CSSCPatchImage.yaml'
+var imageScanning='ACR-CSSC\\ContinuousPatching\\CSSCScanImageAndScedulePatch.yaml'
+var repoPatching='ACR-CSSC\\ContinuousPatching\\CSSCScanRepoAndScedulePatch.yaml'
+var registryPatching='ACR-CSSC\\ContinuousPatching\\CSSCScanRegistryAndScedulePatch.yaml'
 
 resource contributorRoleDefinition 'Microsoft.Authorization/roleDefinitions@2018-01-01-preview' existing = {
   scope: subscription()
@@ -15,7 +15,6 @@ resource contributorRoleDefinition 'Microsoft.Authorization/roleDefinitions@2018
 resource acr 'Microsoft.ContainerRegistry/registries@2019-05-01' existing = {
   name: AcrName
 }
-
 
 resource CSSCPatchImage 'Microsoft.ContainerRegistry/registries/tasks@2019-06-01-preview' = {
   name: 'CSSC-PatchImage'
