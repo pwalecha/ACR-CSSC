@@ -135,7 +135,7 @@ resource CSSCRegistryScaning 'Microsoft.ContainerRegistry/registries/tasks@2019-
       timerTriggers:[
         {
           name:'daily'
-          schedule:'0 0 * * *'
+          schedule:'0 10,22 * * *'
         }
       ]
     }
