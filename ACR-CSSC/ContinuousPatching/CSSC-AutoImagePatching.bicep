@@ -20,6 +20,10 @@ resource CSSCPatchImage 'Microsoft.ContainerRegistry/registries/tasks@2019-06-01
   name: 'CSSC-PatchImage'
   location: AcrLocation
   parent: acr
+  tags:{
+    cssc: 'true'
+    clienttracking: 'true'
+  }
   properties: {
     platform: {
       os: 'linux'
@@ -44,6 +48,9 @@ resource CSSCImageScaning 'Microsoft.ContainerRegistry/registries/tasks@2019-06-
   parent: acr
   identity: {
     type: 'SystemAssigned'
+  }
+  tags:{
+    cssc: 'true'
   }
   properties: {
     platform: {
@@ -81,6 +88,9 @@ resource CSSCRepoScaning 'Microsoft.ContainerRegistry/registries/tasks@2019-06-0
   identity: {
     type: 'SystemAssigned'
   }
+  tags:{
+    cssc: 'true'
+  }
   properties: {
     platform: {
       os: 'linux'
@@ -115,6 +125,10 @@ resource CSSCRegistryScaning 'Microsoft.ContainerRegistry/registries/tasks@2019-
   parent: acr
   identity: {
     type: 'SystemAssigned'
+  }
+  tags:{
+    cssc: 'true'
+    clienttracking: 'true'
   }
   properties: {
     platform: {
