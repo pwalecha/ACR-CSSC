@@ -139,6 +139,7 @@ resource CSSCRegistryScaning 'Microsoft.ContainerRegistry/registries/tasks@2019-
       cpu: 2
     }
     timeout: 3600
+    status: 'Enabled'
     step: {
       type: 'FileTask'
       contextPath: taskContextPath
