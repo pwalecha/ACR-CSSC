@@ -36,6 +36,6 @@ steps:
       {{.Values.SOURCE_IMAGE_TAG}}-patched
     network: host
   - id: namespace-tagging
-    cmd: docker tag {{.Run.Registry}}/{{.Values.SOURCE_REPOSITORY}}:{{.Values.SOURCE_IMAGE_TAG}}-patched {{.Run.Registry}}/patched/{{.Values.SOURCE_REPOSITORY}}:{{.Values.SOURCE_IMAGE_TAG}}-patched
+    cmd: docker tag {{.Run.Registry}}/{{.Values.SOURCE_REPOSITORY}}:{{.Values.SOURCE_IMAGE_TAG}}-patched {{.Run.Registry}}/patched/{{.Values.SOURCE_REPOSITORY}}:{{.Values.SOURCE_IMAGE_TAG}}
   - id: push-image
-    cmd: docker push {{.Run.Registry}}/patched/{{.Values.SOURCE_REPOSITORY}}:{{.Values.SOURCE_IMAGE_TAG}}-patched
+    cmd: docker push {{.Run.Registry}}/patched/{{.Values.SOURCE_REPOSITORY}}:{{.Values.SOURCE_IMAGE_TAG}}
