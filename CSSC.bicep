@@ -1,7 +1,7 @@
 param AcrName string
 param AcrLocation string = resourceGroup().location
 
-var taskContextPath='https://github.com/pwalecha/ACR-CSSC.git#csscworkflow'
+var taskContextPath='https://github.com/pwalecha/ACR-CSSC.git#builddemo'
 var taskFilePath='CSSCAcrTask.yaml'
 
 resource contributorRoleDefinition 'Microsoft.Authorization/roleDefinitions@2018-01-01-preview' existing = {
