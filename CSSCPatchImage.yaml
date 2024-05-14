@@ -35,6 +35,8 @@ steps:
       vulnerability-report_trivy_{{now | date "2023-01-02"}}.json \
       {{.Values.SOURCE_IMAGE_TAG}}-patched
     network: host
-
+  - id: namespace-tagging
+    cmd: docker tag {{.Run.Registry}}/{{.Values.SOURCE_REPOSITORY}}:{{.Values.SOURCE_IMAGE_TAG}}-patched \
+      {{.Run.Registry}}/patched/{{.Values.SOURCE_REPOSITORY}}:{{.Values.SOURCE_IMAGE_TAG}}-patched
   - id: push-image
     cmd: docker push {{.Run.Registry}}/{{.Values.SOURCE_REPOSITORY}}:{{.Values.SOURCE_IMAGE_TAG}}-patched
