@@ -1,7 +1,7 @@
 param AcrName string
 param AcrLocation string = resourceGroup().location
 
-var taskContextPath='https://github.com/siby-george/ACR-CSSC.git#Cssc-workflow'
+var taskContextPath='https://github.com/pwalecha/ACR-CSSC.git#csscworkflow'
 var imagePatching='CSSCPatchImage.yaml'
 var imageScanning='CSSCScanImageAndScedulePatch.yaml'
 var repoPatching='CSSCScanRepoAndScedulePatch.yaml'
