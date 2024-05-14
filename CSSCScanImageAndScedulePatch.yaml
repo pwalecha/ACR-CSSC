@@ -17,7 +17,7 @@ steps:
       --ignore-unfixed \
       --format json \
       --output /workspace/data/vulnerability-report_trivy_{{now | date "2023-01-02"}}.json
-  - cmd: mcr.microsoft.com/azure-cli bash -c 'jq ".Results[].Vulnerabilities | length" /workspace/data/vulnerability-report_trivy_{{now | date "2023-01-02"}}.json > /workspace/data/vulCount.txt'
+  - cmd: mcr.microsoft.com/azure-cli bash -c 'jq "[.Results[].Vulnerabilities | length] | add" /workspace/data/vulnerability-report_trivy_{{now | date "2023-01-02"}}.json > /workspace/data/vulCount.txt'
   - cmd: az login --identity
   - cmd: | 
       mcr.microsoft.com/azure-cli bash -c 'vulCount=$(cat /workspace/data/vulCount.txt) && \
